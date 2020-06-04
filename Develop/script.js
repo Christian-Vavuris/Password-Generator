@@ -1,7 +1,8 @@
 // PseudoCode
 // Requested features - 
-//   random length between 8 and 128
+//   random length between 8 and 128 - DONE but getting an UNDEFINED error still 
 //   choose between lowercase, uppercase, numeric, and special characters
+//   Make an array of Digits
 //   checkbox list of features to include
 //   there can't be no character types selected
 //   password needs to meet the selected criteria
@@ -12,8 +13,20 @@
 // 
 var randomLength = function (length) {
   var characters = Math.round(Math.random() * length);
-  return characters;
+  if (characters >= 8 && characters <= 128) {
+    return characters;
+  }
+  else {
+    randomLength(128)
+  }
 }
+
+var randomNumber = function () {
+  var number = Math.ceil(Math.random()*9)
+  return number;
+}
+
+
 
 
 
@@ -33,4 +46,5 @@ function writePassword() {
 // generateBtn.addEventListener("click", writePassword);
 
 randomLength(128);
-console.log(randomLength(128))
+console.log(randomLength(128));
+console.log(randomNumber())
