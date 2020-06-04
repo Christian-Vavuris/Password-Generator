@@ -2,7 +2,7 @@
 // Requested features - 
 //   random length between 8 and 128 - DONE but getting an UNDEFINED error still 
 //   choose between lowercase, uppercase, numeric, and special characters
-//   Make an array of Digits
+//   Make functions that return a random uppercase, lowercase, number, or special character
 //   checkbox list of features to include
 //   there can't be no character types selected
 //   password needs to meet the selected criteria
@@ -10,7 +10,15 @@
 
 // Assignment code here
 
-// 
+
+let uppercase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+
+let lowercase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+
+let specialCharacter = ["!","@","#","$","%","^","&","*","(",")",":",";","<",">","?","/","~","`","-","_","+","=","|","[","]","{","}",]
+
+let number = {"0","1","2","3","4","5","6","7","8","9"}
+
 var randomLength = function (length) {
   var characters = Math.round(Math.random() * length);
   if (characters >= 8 && characters <= 128) {
@@ -21,12 +29,21 @@ var randomLength = function (length) {
   }
 }
 
-var randomNumber = function () {
-  var number = Math.ceil(Math.random()*9)
-  return number;
+var generateRandomNumber = function () {
+
 }
 
+var generateRandomUppercase = function() {
 
+}
+
+var generateRandomLowercase = function() {
+
+}
+
+var generateRandomSpecialCharacter = function() {
+
+}
 
 
 
@@ -47,4 +64,4 @@ function writePassword() {
 
 randomLength(128);
 console.log(randomLength(128));
-console.log(randomNumber())
+console.log(uppercase)
