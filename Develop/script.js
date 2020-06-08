@@ -17,32 +17,86 @@ let lowercase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p"
 
 let specialCharacter = ["!","@","#","$","%","^","&","*","(",")",":",";","<",">","?","/","~","`","-","_","+","=","|","[","]","{","}",]
 
-let number = {"0","1","2","3","4","5","6","7","8","9"}
+let zeroToNine = ["0","1","2","3","4","5","6","7","8","9"]
 
-var randomLength = function (length) {
-  var characters = Math.round(Math.random() * length);
-  if (characters >= 8 && characters <= 128) {
-    return characters;
+
+// Winow Alerts
+
+var length = window.prompt("How many characters would you like your password to be?");
+
+var lower = window.confirm("Would you like your password to contain lowercase letters?");
+
+var upper = window.confirm("Would you like your password to contain upprcase letters?");
+
+var number = window.confirm("Would you like your password to contain numbers?");
+
+var special = window.confirm("Would you like your password to contain special characters?")
+
+
+// Picking one of the four values at random. Need to add For Loop.
+
+var generateRandom = function() {
+  var probability = Math.random();
+  if (probability < .25 && (number)) {
+    return generateRandomNumber();
+  }
+  else if (probability >= .25 && probability <.5 && (upper)){
+    return generateRandomUppercase();
+  }
+  else if (probability >=.5 && probability <.75 && (lower)){
+    return generateRandomLowercase();
+  }
+  else if (probability >=.75 && (special)) {
+    return generateRandomSpecialCharacter();
+  }
+  else { return generateRandom() }
+  }
+
+
+//  Functions to Generate a type of random character.  Still need to link them to the arrays. 
+
+var generateRandomNumber = function() {
+  if (number) {
+    return zeroToNine[Math.floor(Math.random()*10)];
   }
   else {
-    randomLength(128)
+    return null;
   }
-}
-
-var generateRandomNumber = function () {
-
 }
 
 var generateRandomUppercase = function() {
-
+  if (upper) {
+  return uppercase[Math.floor(Math.random()*26)];
+}
+  else {
+    return null;
+  }
 }
 
 var generateRandomLowercase = function() {
-
+  if (lower) {
+  return lowercase[Math.floor(Math.random()*26)];
+}
+  else {
+    return null;
+  }
 }
 
 var generateRandomSpecialCharacter = function() {
+  if (special) {
+    return specialCharacter[Math.floor(Math.random()*27)];
+  }
+  else {
+    return null
+  }
+}
 
+// here is where we run generateRandom n times and concatenate the results. 
+
+var generatePassword = function () {
+for (var i = 0; i < length; i++) {
+    return generateRandom(); 
+}
 }
 
 
@@ -62,6 +116,20 @@ function writePassword() {
 // Add event listener to generate button
 // generateBtn.addEventListener("click", writePassword);
 
-randomLength(128);
-console.log(randomLength(128));
-console.log(uppercase)
+// console.log(length);
+// console.log(lower);
+// console.log(upper);
+// console.log(number);
+// console.log(special);
+
+
+// console.log(generateRandomNumber());
+// console.log(generateRandomSpecialCharacter());
+// console.log(generateRandomLowercase());
+// console.log(generateRandomUppercase());
+
+console.log(generatePassword())
+
+
+
+
