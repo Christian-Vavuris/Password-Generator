@@ -22,7 +22,8 @@ let zeroToNine = ["0","1","2","3","4","5","6","7","8","9"]
 
 // Winow Alerts
 
-var length = window.prompt("How many characters would you like your password to be?");
+var length = Number(window.prompt("How many characters would you like your password to be?"));
+console.log(typeof(length))
 
 var lower = window.confirm("Would you like your password to contain lowercase letters?");
 
@@ -36,7 +37,8 @@ var special = window.confirm("Would you like your password to contain special ch
 // Picking one of the four values at random. Need to add For Loop.
 
 var generateRandom = function() {
-  var probability = Math.random();
+  for (var i = 0; i < length; i++) {
+  var probability = Math.random() * 1;
   if (probability < .25 && (number)) {
     return generateRandomNumber();
   }
@@ -51,6 +53,7 @@ var generateRandom = function() {
   }
   else { return generateRandom() }
   }
+}
 
 
 //  Functions to Generate a type of random character.  Still need to link them to the arrays. 
@@ -94,9 +97,10 @@ var generateRandomSpecialCharacter = function() {
 // here is where we run generateRandom n times and concatenate the results. 
 
 var generatePassword = function () {
-for (var i = 0; i < length; i++) {
-    return generateRandom(); 
-}
+  for (i=0; i<length; i++){
+    return generateRandom();
+  }
+
 }
 
 
@@ -129,6 +133,8 @@ function writePassword() {
 // console.log(generateRandomUppercase());
 
 console.log(generatePassword())
+console.log(generatePassword())
+
 
 
 
