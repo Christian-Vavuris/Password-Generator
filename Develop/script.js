@@ -37,7 +37,6 @@ var special = window.confirm("Would you like your password to contain special ch
 // Picking one of the four values at random. Need to add For Loop.
 
 var generateRandom = function() {
-  for (var i = 0; i < length; i++) {
   var probability = Math.random() * 1;
   if (probability < .25 && (number)) {
     return generateRandomNumber();
@@ -52,7 +51,6 @@ var generateRandom = function() {
     return generateRandomSpecialCharacter();
   }
   else { return generateRandom() }
-  }
 }
 
 
@@ -97,12 +95,13 @@ var generateRandomSpecialCharacter = function() {
 // here is where we run generateRandom n times and concatenate the results. 
 
 var generatePassword = function () {
-  for (i=0; i<length; i++){
-    return generateRandom();
+  var output = ""
+  for (i=0; i<length; i++) {
+    output = output + generateRandom();
   }
+  return window.alert("Your password is " +output);
 
 }
-
 
 
 // Get references to the #generate element
@@ -118,22 +117,12 @@ function writePassword() {
 }
 
 // Add event listener to generate button
-// generateBtn.addEventListener("click", writePassword);
 
-// console.log(length);
-// console.log(lower);
-// console.log(upper);
-// console.log(number);
-// console.log(special);
+generateBtn.addEventListener("click", writePassword);
 
-
-// console.log(generateRandomNumber());
-// console.log(generateRandomSpecialCharacter());
-// console.log(generateRandomLowercase());
-// console.log(generateRandomUppercase());
 
 console.log(generatePassword())
-console.log(generatePassword())
+
 
 
 
